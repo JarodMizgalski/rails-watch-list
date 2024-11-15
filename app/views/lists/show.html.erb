@@ -6,7 +6,7 @@
 <p><strong> Add new movie </strong></p>
 <ul class="list-group">
   <% @list.bookmarks.each do |bookmark| %>
-    <li class="list-group-item"><%= bookmark.comment %><%= link_to "delete movie", bookmark_path(bookmark), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%></li>
+    <li class="list-group-item"><%= bookmark.comment %><%= bookmark.movie.title %><%= link_to "delete movie", bookmark_path(bookmark), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%></li>
   <% end %>
 </ul>
 <br>
