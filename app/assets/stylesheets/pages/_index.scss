@@ -1,2 +1,8 @@
 // Import page-specific CSS files here.
 @import "home";
+.card-title {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 225px;
+}
