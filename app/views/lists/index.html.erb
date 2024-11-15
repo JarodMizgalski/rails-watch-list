@@ -1,15 +1,21 @@
-<% @lists.each do |list| %>
-  <div class="card" style="width: 18rem;">
-    <div class="card-body">
-      <% if list.photo.attached? %>
-        <%= cl_image_tag list.photo.key %>
-      <% else %>
-        <%= image_tag 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPQDYau3Hs4-xw1i8jVSUY4BlF4FLmg8lQqg&usqp=CAU' %>
+<div class="container d-flex flex-direction: row mx-auto py-2">
+  <div class="row">
+      <% @lists.each do |list| %>
+        <div class="col">
+          <div class="card my-2 py-2" style="width: 18rem;">
+            <div class="card-category my-2 py-2 align-items-center">
+              <% if list.photo.attached? %>
+                <%= cl_image_tag list.photo.key, height: 225, width: 225, crop: :fill %>
+              <% else %>
+                <%= image_tag 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPQDYau3Hs4-xw1i8jVSUY4BlF4FLmg8lQqg&usqp=CAU' %>
+              <% end %>
+              <h5 class="card-title py-2"><%= list.name %></h5>
+              <%= link_to "view list", list_path(list), class: "btn btn-primary"%>
+            </div>
+          </div>
+        </div>
       <% end %>
-      <h5 class="card-title"><%= list.name %></h5>
-      <%= link_to "view list", list_path(list)%>
-    </div>
   </div>
-<% end %>
+</div>
 
 <%= link_to "add new list", new_list_path, class: "btn btn-primary" %>
